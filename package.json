@@ -1,0 +1,30 @@
+{
+  "name": "circleci-se-challenge",
+  "version": "1.0.0",
+  "description": "Simple Node.js website to demonstrate CircleCI capabilities",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvxt/circleci-se-challenge.git"
+  },
+  "keywords": [
+    "node",
+    "node.js",
+    "javascript",
+    "circleci",
+    "html"
+  ],
+  "author": "Michael Vinh Xuan Thanh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mvxt/circleci-se-challenge/issues"
+  },
+  "homepage": "https://github.com/mvxt/circleci-se-challenge#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
