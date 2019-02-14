@@ -4,8 +4,8 @@
   "description": "Simple Node.js website to demonstrate CircleCI capabilities",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "test"
+    "start": "npx http-server",
+    "test": "testcafe \"chrome:headless\",\"firefox:headless\" test/*"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,9 @@
     "url": "https://github.com/mvxt/circleci-se-challenge/issues"
   },
   "homepage": "https://github.com/mvxt/circleci-se-challenge#readme",
-  "dependencies": {
-    "express": "^4.16.4"
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "testcafe": "^1.0.0"
   }
 }
