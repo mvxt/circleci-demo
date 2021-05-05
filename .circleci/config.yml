@@ -15,7 +15,7 @@ orbs:
 aliases:
   - &project_dir "~/project"
 
-# Executors
+# Execution environments
 executors:
   python-browsers:
     description: Using python-browsers because node-gyp requires Python... 🤦
@@ -24,7 +24,7 @@ executors:
     working_directory: *project_dir
     resource_class: medium
 
-# Commands
+# Reusable, parameterizable commands
 commands:
   say-hello:
     description: "Show off parameterization and concurrent jobs"
@@ -35,12 +35,27 @@ commands:
     steps:
       - run: echo "Hello << parameters.subject >>!"
 
+# Pipeline parameters
+parameters:
+  run_tests:
+    description: Whether to run test suites
+    type: boolean
+    default: false
+  experiment:
+    type: boolean
+    default: true
+
 ##########################
 # Workflow Definitions
 ##########################
 workflows:
   version: 2
+  experiment:
+    when: << pipeline.parameters.experiment >>
+    jobs:
+      - experiment
   test-build:
+    when: << pipeline.parameters.run_tests >>
     jobs:
       - test
       - test-parallel:
@@ -94,6 +109,12 @@ workflows:
 ##########################
 version: 2.1
 jobs:
+  experiment:
+    docker:
+      - image: cimg/base:2021.05
+    steps:
+      - checkout
+      - run: echo "Hello world!"
   test:
     executor: python-browsers
     steps:
