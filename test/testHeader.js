@@ -10,7 +10,7 @@ test('Check page has welcome message', async t => {
 
 test('Check subheading matches marketing template', async t => {
   await t
-      .expect(Selector('.intro-heading').innerText).eql("START YOUR PROJECT TODAY");
+      .expect(Selector('.intro-heading').innerText).eql("DESIGN YOUR DREAM PROJECT TODAY");
 });
 
 test('Check button has effective call to action', async t => {
